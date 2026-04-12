@@ -1,0 +1,236 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const posts = [
+  { title: "Complete Bridal Beauty Timeline: Month by Month Checklist", excerpt: "Your step-by-step guide from 6 months out to the morning of. Every product, every appointment, every deadline you actually need.", category: "Beauty", readTime: "8 min read" },
+  { title: "How to Find the Perfect Wedding Dress for Your Body Type", excerpt: "Forget the rules you've been told. Here's what actually matters when choosing a silhouette — from two stylists who've fitted thousands of brides.", category: "Bridal", readTime: "10 min read" },
+  { title: "What to Expect at Your First Bridal Salon Appointment", excerpt: "The inside scoop on what really happens, what to bring, what to wear, and the questions nobody tells you to ask.", category: "Bridal", readTime: "7 min read" },
+  { title: "Best Skincare Routine Before Your Wedding", excerpt: "The products that work, the treatments worth the splurge, and the mistakes that will haunt your wedding photos.", category: "Beauty", readTime: "9 min read" },
+  { title: "Bridesmaid Dress Guide: Styles, Colors, and How to Please Everyone", excerpt: "Yes, it's possible to choose dresses that work for every body type in your bridal party. Here's exactly how.", category: "Bridal", readTime: "8 min read" },
+  { title: "10 Things Bridal Stylists Wish Every Bride Knew", excerpt: "The tips we whispered to our favorite brides. Now we're saying them out loud for everyone.", category: "Insider", readTime: "6 min read" },
+  { title: "How to Create a Wedding Morning Getting Ready Timeline", excerpt: "A printable, practical timeline template for every ceremony time — so nobody is panicking at noon.", category: "Planning", readTime: "7 min read" },
+  { title: "Budget Wedding Beauty: Where to Save and Where to Splurge", excerpt: "Real numbers, real product swaps, and the one thing you should never cheap out on.", category: "Budget", readTime: "8 min read" },
+  { title: "Bridal Hair 101: Extensions, Updos, and What Actually Stays All Night", excerpt: "From trial to dance floor — the hairstyles that hold up and the ones that won't make it past cocktail hour.", category: "Beauty", readTime: "9 min read" },
+];
+---
+
+<BaseLayout title="Blog — SavvySam" description="Expert articles on bridal tips, beauty secrets, wedding planning, and style advice from two former bridal stylists.">
+
+  <!-- BLOG HERO -->
+  <section class="blog-hero">
+    <div class="container">
+      <span class="pill pill-gold">The Content Hub</span>
+      <h1>Expert Advice, <em>Zero Fluff</em></h1>
+      <p>In-depth articles on bridal, beauty, and style from two women who've been in the trenches.</p>
+    </div>
+  </section>
+
+  <!-- FEATURED POST -->
+  <section class="section">
+    <div class="container">
+      <div class="featured-post">
+        <div class="featured-content">
+          <span class="pill pill-gold">Featured</span>
+          <h2>{posts[0].title}</h2>
+          <p>{posts[0].excerpt}</p>
+          <div class="post-meta">
+            <span class="pill pill-teal">{posts[0].category}</span>
+            <span class="meta-time">{posts[0].readTime}</span>
+          </div>
+          <a href="/blog" class="btn btn-primary" style="margin-top: 1.5rem;">Read Article</a>
+        </div>
+        <div class="featured-visual">
+          <div class="featured-img-placeholder">
+            <span>&#128132;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALL POSTS -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2>Latest Articles</h2>
+        <p>Deep dives into everything bridal, beauty, and beyond.</p>
+      </div>
+      <div class="grid-3 posts-grid">
+        {posts.slice(1).map(post => (
+          <a href="/blog" class="post-card">
+            <div class="post-card-img">
+              <span class="pill pill-teal post-cat">{post.category}</span>
+            </div>
+            <div class="post-card-body">
+              <h3>{post.title}</h3>
+              <p>{post.excerpt}</p>
+              <span class="meta-time">{post.readTime}</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="section">
+    <div class="container" style="text-align: center;">
+      <h2 style="color: var(--teal); margin-bottom: 0.75rem;">Want These Tips in Your Inbox?</h2>
+      <p style="color: var(--text-muted); max-width: 480px; margin: 0 auto 2rem;">Join our newsletter for weekly bridal and beauty advice plus a free downloadable checklist.</p>
+      <form class="inline-form" action="#" method="post">
+        <input type="email" placeholder="Your email address" required class="newsletter-input" />
+        <button type="submit" class="btn btn-secondary">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .blog-hero {
+    background: linear-gradient(135deg, var(--cream) 0%, var(--teal-pale) 100%);
+    padding: 6rem 0 4rem;
+    text-align: center;
+  }
+
+  .blog-hero h1 {
+    max-width: 550px;
+    margin: 1rem auto 0.75rem;
+  }
+
+  .blog-hero h1 em { color: var(--teal); font-style: italic; }
+
+  .blog-hero > .container > p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .featured-post {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+  }
+
+  .featured-content h2 {
+    color: var(--teal);
+    margin: 1rem 0 0.75rem;
+    font-size: 1.6rem;
+  }
+
+  .featured-content p {
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .meta-time {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  .featured-img-placeholder {
+    background: linear-gradient(135deg, var(--teal-pale), var(--gold-light));
+    border-radius: var(--radius-md);
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+  }
+
+  .post-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: all 0.3s;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .post-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    color: inherit;
+  }
+
+  .post-card-img {
+    height: 160px;
+    background: linear-gradient(135deg, var(--teal-pale), var(--cream));
+    position: relative;
+  }
+
+  .post-cat {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+  }
+
+  .post-card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .post-card-body h3 {
+    font-size: 1.05rem;
+    color: var(--dark);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+
+  .post-card-body p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    flex: 1;
+  }
+
+  .post-card-body .meta-time {
+    margin-top: 1rem;
+  }
+
+  .inline-form {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .newsletter-input {
+    padding: 0.85rem 1.25rem;
+    border: 2px solid var(--border);
+    border-radius: var(--radius-xl);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.92rem;
+    flex: 1;
+    transition: border-color 0.3s;
+    outline: none;
+  }
+
+  .newsletter-input:focus { border-color: var(--teal); }
+
+  @media (max-width: 768px) {
+    .featured-post { grid-template-columns: 1fr; padding: 1.5rem; }
+    .featured-visual { order: -1; }
+    .inline-form { flex-direction: column; }
+  }
+</style>
+</BaseLayout>

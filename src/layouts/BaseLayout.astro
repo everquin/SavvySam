@@ -1,0 +1,41 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'SavvySam — Real talk on bridal, beauty & life from two former stylists who\'ve been behind the veil.' } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/images/logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/png" href="/images/logo.png" />
+  <title>{title}</title>
+</head>
+<body>
+  <Header />
+  <main class="main-content">
+    <slot />
+  </main>
+  <Footer />
+</body>
+</html>
+
+<style>
+  .main-content {
+    padding-top: 72px;
+  }
+</style>

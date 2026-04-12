@@ -1,0 +1,272 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About Us — SavvySam" description="Meet Savvy & Sam — two former bridal stylists sharing insider secrets on weddings, beauty, and living your best life.">
+
+  <!-- ABOUT HERO -->
+  <section class="about-hero">
+    <div class="container">
+      <div class="about-hero-inner">
+        <span class="pill pill-gold">Our Story</span>
+        <h1>Two Stylists. <em>Thousands of Brides.</em> Zero Sugarcoating.</h1>
+        <p class="about-hero-sub">We spent years inside bridal salons — adjusting trains, calming tears, and whispering the truth no one else would say. Now we're saying it out loud.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE STORY -->
+  <section class="section">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-content">
+          <h2>How It All Started</h2>
+          <p>Savvy and Samantha came from different backgrounds but ended up in the same world — bridal styling. Between trunk shows, tearful fittings, and the chaos of wedding season, they discovered something: brides deserved better information.</p>
+          <p>Better than the sales pitch. Better than Pinterest boards that set impossible expectations. Better than generic advice from people who've never laced up a corset at 6 AM on a Saturday.</p>
+          <p>After years behind the scenes, they decided to step in front of the mic. <strong>SavvySam</strong> was born — a brand built on honesty, expertise, and a genuine love for helping women feel incredible, whether they're walking down the aisle or just walking into Monday.</p>
+        </div>
+        <div class="story-visual">
+          <div class="story-image-frame">
+            <img src="/images/logo.png" alt="SavvySam" class="story-img" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEET THE HOSTS -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="pill pill-teal">The Hosts</span>
+        <h2>Meet Savvy &amp; Sam</h2>
+      </div>
+      <div class="grid-2 hosts-grid">
+        <div class="host-card">
+          <div class="host-avatar">S</div>
+          <h3>Savvy</h3>
+          <p class="host-title">Co-Founder &amp; Co-Host</p>
+          <p>The one who tells it like it is. With years of experience styling brides of every shape, size, and budget, Savvy brings the insider knowledge and the confidence to share it without a filter. She's your straight-talking best friend who also happens to know exactly which neckline flatters your frame.</p>
+        </div>
+        <div class="host-card">
+          <div class="host-avatar gold">S</div>
+          <h3>Samantha</h3>
+          <p class="host-title">Co-Founder &amp; Co-Host</p>
+          <p>The heart and the strategist. Sam's path through the bridal world gave her a deep understanding of beauty, wellness, and what it really takes to feel your best. She's the one who remembers the skincare tip that changed everything and the business sense that keeps SavvySam moving forward.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRAND VALUES -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="pill pill-gold">What We Stand For</span>
+        <h2>Our Brand Values</h2>
+      </div>
+      <div class="grid-3 values-grid">
+        <div class="value-card">
+          <div class="value-icon">&#128172;</div>
+          <h3>Honest Always</h3>
+          <p>No sponsored opinions, no sugarcoating, no pretending something is great when it isn't. If we recommend it, we mean it.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">&#129309;</div>
+          <h3>Radically Inclusive</h3>
+          <p>Beauty, bridal, and fashion for every body, every budget, and every background. Full stop.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">&#127775;</div>
+          <h3>Expert but Approachable</h3>
+          <p>We've got the credentials and the stories. But we'll never make you feel like you should already know what we're teaching.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">&#128150;</div>
+          <h3>Community First</h3>
+          <p>This isn't a broadcast — it's a conversation. Your questions, your stories, and your experiences shape what we create.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">&#128170;</div>
+          <h3>Empowerment Over Pressure</h3>
+          <p>We're here to help you feel confident, not anxious. Aspirational but attainable — inspire without intimidating.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">&#127913;</div>
+          <h3>Fun is Non-Negotiable</h3>
+          <p>Planning a wedding should be exciting. Getting ready should be joyful. We bring the energy and the laughs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section-cream">
+    <div class="container" style="text-align: center;">
+      <h2 style="color: var(--teal); margin-bottom: 1rem;">Ready to Join Us?</h2>
+      <p style="color: var(--text-muted); max-width: 500px; margin: 0 auto 2rem; font-size: 1.05rem;">Start with the podcast, follow us on social, or browse the boutique. However you join, you're part of the SavvySam family now.</p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="/podcast" class="btn btn-primary">Start Listening</a>
+        <a href="/shop" class="btn btn-secondary">Visit the Shop</a>
+        <a href="/contact" class="btn btn-outline">Say Hello</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .about-hero {
+    background: linear-gradient(135deg, var(--teal) 0%, var(--teal-medium) 100%);
+    padding: 6rem 0 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-hero::before {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: rgba(201, 168, 76, 0.15);
+  }
+
+  .about-hero-inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .about-hero h1 {
+    color: var(--white);
+    max-width: 700px;
+    margin: 1rem auto;
+  }
+
+  .about-hero h1 em {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .about-hero-sub {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.15rem;
+    max-width: 580px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .story-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .story-content h2 {
+    color: var(--teal);
+    margin-bottom: 1.25rem;
+  }
+
+  .story-content p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+
+  .story-image-frame {
+    background: linear-gradient(135deg, var(--teal-pale), var(--gold-light));
+    border-radius: var(--radius-lg);
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .story-img {
+    width: 100%;
+    border-radius: var(--radius-md);
+  }
+
+  .host-card {
+    background: var(--white);
+    border-radius: var(--radius-md);
+    padding: 2.5rem;
+    text-align: center;
+    border: 1px solid var(--border);
+  }
+
+  .host-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--teal), var(--teal-medium));
+    color: var(--white);
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.25rem;
+  }
+
+  .host-avatar.gold {
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  }
+
+  .host-card h3 {
+    color: var(--teal);
+    margin-bottom: 0.25rem;
+  }
+
+  .host-title {
+    font-size: 0.82rem;
+    color: var(--gold);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+  }
+
+  .host-card p:last-child {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  .value-card {
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .value-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .value-card h3 {
+    color: var(--teal);
+    margin-bottom: 0.75rem;
+    font-size: 1.15rem;
+  }
+
+  .value-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .story-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .story-visual { order: -1; }
+  }
+</style>
+</BaseLayout>
