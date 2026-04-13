@@ -2,15 +2,15 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const posts = [
-  { title: "Complete Bridal Beauty Timeline: Month by Month Checklist", excerpt: "Your step-by-step guide from 6 months out to the morning of. Every product, every appointment, every deadline you actually need.", category: "Beauty", readTime: "8 min read" },
-  { title: "How to Find the Perfect Wedding Dress for Your Body Type", excerpt: "Forget the rules you've been told. Here's what actually matters when choosing a silhouette — from two stylists who've fitted thousands of brides.", category: "Bridal", readTime: "10 min read" },
-  { title: "What to Expect at Your First Bridal Salon Appointment", excerpt: "The inside scoop on what really happens, what to bring, what to wear, and the questions nobody tells you to ask.", category: "Bridal", readTime: "7 min read" },
-  { title: "Best Skincare Routine Before Your Wedding", excerpt: "The products that work, the treatments worth the splurge, and the mistakes that will haunt your wedding photos.", category: "Beauty", readTime: "9 min read" },
-  { title: "Bridesmaid Dress Guide: Styles, Colors, and How to Please Everyone", excerpt: "Yes, it's possible to choose dresses that work for every body type in your bridal party. Here's exactly how.", category: "Bridal", readTime: "8 min read" },
-  { title: "10 Things Bridal Stylists Wish Every Bride Knew", excerpt: "The tips we whispered to our favorite brides. Now we're saying them out loud for everyone.", category: "Insider", readTime: "6 min read" },
-  { title: "How to Create a Wedding Morning Getting Ready Timeline", excerpt: "A printable, practical timeline template for every ceremony time — so nobody is panicking at noon.", category: "Planning", readTime: "7 min read" },
-  { title: "Budget Wedding Beauty: Where to Save and Where to Splurge", excerpt: "Real numbers, real product swaps, and the one thing you should never cheap out on.", category: "Budget", readTime: "8 min read" },
-  { title: "Bridal Hair 101: Extensions, Updos, and What Actually Stays All Night", excerpt: "From trial to dance floor — the hairstyles that hold up and the ones that won't make it past cocktail hour.", category: "Beauty", readTime: "9 min read" },
+  { title: "Complete Bridal Beauty Timeline: Month by Month Checklist", excerpt: "Your step-by-step guide from 6 months out to the morning of. Every product, every appointment, every deadline you actually need.", category: "Beauty", readTime: "8 min read", slug: "complete-bridal-beauty-timeline" },
+  { title: "How to Find the Perfect Wedding Dress for Your Body Type", excerpt: "Forget the rules you've been told. Here's what actually matters when choosing a silhouette — from two stylists who've fitted thousands of brides.", category: "Bridal", readTime: "10 min read", slug: "find-perfect-wedding-dress-body-type" },
+  { title: "What to Expect at Your First Bridal Salon Appointment", excerpt: "The inside scoop on what really happens, what to bring, what to wear, and the questions nobody tells you to ask.", category: "Bridal", readTime: "7 min read", slug: "first-bridal-salon-appointment" },
+  { title: "Best Skincare Routine Before Your Wedding", excerpt: "The products that work, the treatments worth the splurge, and the mistakes that will haunt your wedding photos.", category: "Beauty", readTime: "9 min read", slug: "best-skincare-routine-before-wedding" },
+  { title: "Bridesmaid Dress Guide: Styles, Colors, and How to Please Everyone", excerpt: "Yes, it's possible to choose dresses that work for every body type in your bridal party. Here's exactly how.", category: "Bridal", readTime: "8 min read", slug: "bridesmaid-dress-guide" },
+  { title: "10 Things Bridal Stylists Wish Every Bride Knew", excerpt: "The tips we whispered to our favorite brides. Now we're saying them out loud for everyone.", category: "Insider", readTime: "6 min read", slug: "10-things-bridal-stylists-wish-brides-knew" },
+  { title: "How to Create a Wedding Morning Getting Ready Timeline", excerpt: "A printable, practical timeline template for every ceremony time — so nobody is panicking at noon.", category: "Planning", readTime: "7 min read", slug: "wedding-morning-getting-ready-timeline" },
+  { title: "Budget Wedding Beauty: Where to Save and Where to Splurge", excerpt: "Real numbers, real product swaps, and the one thing you should never cheap out on.", category: "Budget", readTime: "8 min read", slug: "budget-wedding-beauty" },
+  { title: "Bridal Hair 101: Extensions, Updos, and What Actually Stays All Night", excerpt: "From trial to dance floor — the hairstyles that hold up and the ones that won't make it past cocktail hour.", category: "Beauty", readTime: "9 min read", slug: "bridal-hair-101" },
 ];
 ---
 
@@ -37,7 +37,7 @@ const posts = [
             <span class="pill pill-teal">{posts[0].category}</span>
             <span class="meta-time">{posts[0].readTime}</span>
           </div>
-          <a href="/blog" class="btn btn-primary" style="margin-top: 1.5rem;">Read Article</a>
+          <a href={`/blog/${posts[0].slug}`} class="btn btn-primary" style="margin-top: 1.5rem;">Read Article</a>
         </div>
         <div class="featured-visual">
           <div class="featured-img-placeholder">
@@ -57,7 +57,7 @@ const posts = [
       </div>
       <div class="grid-3 posts-grid">
         {posts.slice(1).map(post => (
-          <a href="/blog" class="post-card">
+          <a href={`/blog/${post.slug}`} class="post-card">
             <div class="post-card-img">
               <span class="pill pill-teal post-cat">{post.category}</span>
             </div>

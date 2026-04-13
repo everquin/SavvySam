@@ -1,0 +1,285 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  category: string;
+  readTime: string;
+  date: string;
+  heroEmoji: string;
+}
+
+const { title, description, category, readTime, date, heroEmoji } = Astro.props;
+---
+
+<BaseLayout title={`${title} — SavvySam`} description={description}>
+
+  <!-- ARTICLE HERO -->
+  <section class="article-hero">
+    <div class="container">
+      <a href="/blog" class="back-link">&larr; Back to Blog</a>
+      <div class="article-hero-meta">
+        <span class="pill pill-teal">{category}</span>
+        <span class="meta-sep">&middot;</span>
+        <span class="meta-time">{readTime}</span>
+        <span class="meta-sep">&middot;</span>
+        <span class="meta-date">{date}</span>
+      </div>
+      <h1>{title}</h1>
+      <p class="article-hero-excerpt">{description}</p>
+      <div class="article-hero-img">
+        <span>{heroEmoji}</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLE BODY -->
+  <section class="article-section">
+    <div class="container">
+      <div class="article-grid">
+        <article class="article-content">
+          <slot />
+        </article>
+        <aside class="article-sidebar">
+          <div class="sidebar-card">
+            <h4>About the Authors</h4>
+            <p>Savvy &amp; Sam are former bridal stylists who've worked with thousands of brides. They share their insider knowledge through the SavvySam podcast and blog.</p>
+            <a href="/about" class="btn btn-outline btn-sm">Meet Us</a>
+          </div>
+          <div class="sidebar-card">
+            <h4>Listen to the Podcast</h4>
+            <p>Get even more bridal and beauty advice on the SavvySam podcast, dropping new episodes weekly.</p>
+            <a href="/podcast" class="btn btn-primary btn-sm">Browse Episodes</a>
+          </div>
+          <div class="sidebar-card sidebar-newsletter">
+            <h4>Get Tips in Your Inbox</h4>
+            <p>Weekly bridal and beauty advice plus a free downloadable checklist.</p>
+            <form action="#" method="post" class="sidebar-form">
+              <input type="email" placeholder="Your email" required class="sidebar-input" />
+              <button type="submit" class="btn btn-secondary btn-sm">Subscribe</button>
+            </form>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- MORE ARTICLES CTA -->
+  <section class="section section-alt" style="text-align: center;">
+    <div class="container">
+      <h2 style="color: var(--teal); margin-bottom: 0.75rem;">Want More Expert Advice?</h2>
+      <p style="color: var(--text-muted); max-width: 480px; margin: 0 auto 2rem;">Browse all our articles for in-depth guides on bridal, beauty, and style.</p>
+      <a href="/blog" class="btn btn-primary">View All Articles</a>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .article-hero {
+    background: linear-gradient(135deg, var(--cream) 0%, var(--teal-pale) 100%);
+    padding: 5rem 0 2rem;
+    text-align: center;
+  }
+
+  .back-link {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: var(--teal);
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    transition: transform 0.2s;
+  }
+
+  .back-link:hover {
+    transform: translateX(-4px);
+  }
+
+  .article-hero-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .meta-sep { color: var(--border); }
+  .meta-time, .meta-date { font-size: 0.82rem; color: var(--text-muted); }
+
+  .article-hero h1 {
+    max-width: 720px;
+    margin: 0 auto 1rem;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    color: var(--dark);
+  }
+
+  .article-hero-excerpt {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    line-height: 1.7;
+  }
+
+  .article-hero-img {
+    background: linear-gradient(135deg, var(--teal-pale), var(--gold-light));
+    border-radius: var(--radius-lg);
+    height: 200px;
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+  }
+
+  .article-section {
+    padding: 4rem 0;
+  }
+
+  .article-grid {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .article-content {
+    font-size: 1.02rem;
+    line-height: 1.8;
+    color: var(--text);
+  }
+
+  .article-content :global(h2) {
+    color: var(--teal);
+    margin: 2.5rem 0 1rem;
+    font-size: 1.5rem;
+  }
+
+  .article-content :global(h3) {
+    color: var(--dark);
+    margin: 2rem 0 0.75rem;
+    font-size: 1.2rem;
+  }
+
+  .article-content :global(p) {
+    margin-bottom: 1.25rem;
+  }
+
+  .article-content :global(ul),
+  .article-content :global(ol) {
+    margin: 1rem 0 1.5rem 1.5rem;
+  }
+
+  .article-content :global(li) {
+    margin-bottom: 0.5rem;
+    line-height: 1.7;
+  }
+
+  .article-content :global(strong) {
+    color: var(--dark);
+    font-weight: 600;
+  }
+
+  .article-content :global(blockquote) {
+    border-left: 4px solid var(--gold);
+    background: var(--gold-light);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    font-style: italic;
+    color: var(--dark);
+  }
+
+  .article-content :global(blockquote p) {
+    margin-bottom: 0;
+  }
+
+  .article-content :global(.tip-box) {
+    background: var(--teal-light);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .article-content :global(.tip-box strong) {
+    color: var(--teal);
+  }
+
+  .article-sidebar {
+    position: sticky;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .sidebar-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+  }
+
+  .sidebar-card h4 {
+    font-size: 1rem;
+    color: var(--teal);
+    margin-bottom: 0.5rem;
+  }
+
+  .sidebar-card p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .btn-sm {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.82rem;
+  }
+
+  .sidebar-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .sidebar-input {
+    padding: 0.65rem 1rem;
+    border: 2px solid var(--border);
+    border-radius: var(--radius-xl);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+
+  .sidebar-input:focus { border-color: var(--teal); }
+
+  @media (max-width: 968px) {
+    .article-grid {
+      grid-template-columns: 1fr;
+    }
+    .article-sidebar {
+      position: static;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    .sidebar-card {
+      flex: 1;
+      min-width: 250px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .article-sidebar {
+      flex-direction: column;
+    }
+    .sidebar-card {
+      min-width: unset;
+    }
+  }
+</style>
