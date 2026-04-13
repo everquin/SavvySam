@@ -7,10 +7,11 @@ interface Props {
   category: string;
   readTime: string;
   date: string;
-  heroEmoji: string;
+  heroImage?: string;
+  heroAlt?: string;
 }
 
-const { title, description, category, readTime, date, heroEmoji } = Astro.props;
+const { title, description, category, readTime, date, heroImage, heroAlt = '' } = Astro.props;
 ---
 
 <BaseLayout title={`${title} — SavvySam`} description={description}>
@@ -28,9 +29,11 @@ const { title, description, category, readTime, date, heroEmoji } = Astro.props;
       </div>
       <h1>{title}</h1>
       <p class="article-hero-excerpt">{description}</p>
-      <div class="article-hero-img">
-        <span>{heroEmoji}</span>
-      </div>
+      {heroImage && (
+        <div class="article-hero-img">
+          <img src={heroImage} alt={heroAlt || title} loading="eager" />
+        </div>
+      )}
     </div>
   </section>
 
@@ -123,15 +126,18 @@ const { title, description, category, readTime, date, heroEmoji } = Astro.props;
   }
 
   .article-hero-img {
-    background: linear-gradient(135deg, var(--teal-pale), var(--gold-light));
     border-radius: var(--radius-lg);
-    height: 200px;
-    max-width: 500px;
+    max-width: 720px;
+    max-height: 400px;
     margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 4rem;
+    overflow: hidden;
+  }
+
+  .article-hero-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
   }
 
   .article-section {
@@ -194,6 +200,27 @@ const { title, description, category, readTime, date, heroEmoji } = Astro.props;
 
   .article-content :global(blockquote p) {
     margin-bottom: 0;
+  }
+
+  .article-content :global(.article-img) {
+    margin: 2rem 0;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+
+  .article-content :global(.article-img img) {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--radius-md);
+  }
+
+  .article-content :global(.article-img figcaption) {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 0.5rem;
+    font-style: italic;
   }
 
   .article-content :global(.tip-box) {
